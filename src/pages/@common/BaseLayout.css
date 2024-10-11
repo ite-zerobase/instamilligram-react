@@ -1,0 +1,9 @@
+.sider-logo {
+    margin-top: 32px;
+    margin-right: 68px;
+    height : 50px;
+    background-image : url('src/assets/images/instamilligram-logo.png');
+    background-size : contain;
+    background-position : center;
+    background-repeat: no-repeat;
+  }
