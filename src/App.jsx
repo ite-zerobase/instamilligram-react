@@ -1,26 +1,35 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { BaseLayout } from './pages';
+import {
+  BaseLayout,
+  LoginLayout,
+  LoginView,
+  HomeView,
+  ProfileView,
+  PostView,
+  SignupView,
+  CommentView,
+  SearchView,NotificationView
+} from './pages';
 import './App.css';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <BaseLayout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/:username" element={<Dummy />} />
-          <Route path="/p/:postId" element={<Dummy />} />
-        </Routes>
-      </BaseLayout>
+      <Routes>
+        <Route element={<BaseLayout />}>
+          <Route path="/" element={<HomeView />} />
+          <Route path="/:username" element={<ProfileView />} />
+          <Route path="/p/:postId" element={<PostView />} />
+          <Route path="/comments" element={<CommentView />} />
+          <Route path="/notification" element={<NotificationView />} />
+          <Route path="/search" element={<SearchView />} />
+        </Route>
+        <Route element={<LoginLayout />}>
+          <Route path="login" element={<LoginView />} />
+          <Route path="signup" element={<SignupView />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };
 export default App;
-
-function Home() {
-  return <h1 style={{ height: '100vh' }}>Home Component</h1>;
-}
-
-function Dummy() {
-  return <h1 style={{ height: '100vh' }}>Dummy Component</h1>;
-}
