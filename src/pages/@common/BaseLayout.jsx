@@ -1,111 +1,62 @@
-import React from 'react';
-import {
-  HomeOutlined,
-  HeartOutlined,
-  UserOutlined,
-  SearchOutlined,
-  PlusSquareOutlined,
-} from '@ant-design/icons';
-import { Layout, Menu, theme } from 'antd';
+import { useState } from 'react';
+import { Layout, Menu, Modal } from 'antd';
 const { Content, Footer, Sider } = Layout;
-import './BaseLayout.css';
-import { useNavigate } from 'react-router-dom';
-const iconProps = { style: { fontSize: 24 } };
+import styles from './BaseLayout.module.css';
+import { Outlet, useNavigate } from 'react-router-dom';
+import {
+  navItems,
+  siderStyle,
+  contentStyle,
+  menuStyle,
+  footerStyle,
+} from './data/BaseLayoutData';
+import CreatePostModal from './components/CreatePostModal';
 
-const itemStyle = { margin: '16px auto', padding: '0 12px' };
-const navItems = [
-  {
-    key: '1',
-    icon: React.createElement(HomeOutlined, iconProps),
-    label: '홈',
-    path: '',
-    style: itemStyle,
-  },
-  {
-    key: '2',
-    icon: React.createElement(SearchOutlined, iconProps),
-    label: '검색',
-    path: null,
-    style: itemStyle,
-  },
-  {
-    key: '3',
-    icon: React.createElement(HeartOutlined, iconProps),
-    label: '알림',
-    path: null,
-    style: itemStyle,
-  },
-  {
-    key: '4',
-    icon: React.createElement(PlusSquareOutlined, iconProps),
-    label: '만들기',
-    path: null,
-    style: itemStyle,
-  },
-  {
-    key: '5',
-    icon: React.createElement(UserOutlined, iconProps),
-    label: '프로필',
-    path: '/danielchoi1115',
-    style: itemStyle,
-  },
-];
-const siderStyle = {
-  background: '#ffffff',
-  overflow: 'auto',
-  height: '100vh',
-  position: 'fixed',
-  insetInlineStart: 0,
-  top: 0,
-  bottom: 0,
-  scrollbarWidth: 'thin',
-  scrollbarColor: 'unset',
-};
-const contentStyle = {
-  padding: 24,
-  textAlign: 'center',
-  background: '#ffffff',
-};
-function BaseLayout(props) {
+function BaseLayout() {
   const navigate = useNavigate();
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+
+  function openCreatePost() {
+    setIsCreateModalOpen(true);
+  }
+  function closeCreatePost() {
+    setIsCreateModalOpen(false);
+  }
 
   const handleMenuClick = ({ key }) => {
     const item = navItems.find((it) => it.key === key);
-    if (item.path == null) {
-      return;
+    if (item.path) {
+      navigate(item.path);
     }
-    navigate(item.path);
+    if (item.label === '만들기') {
+      openCreatePost();
+    }
   };
 
   return (
     <Layout hasSider>
       <Sider width={204} style={siderStyle}>
-        <div className="sider-logo"></div>
+        <div className={styles['sider-logo']}></div>
         <Menu
           mode="inline"
           defaultSelectedKeys={['1']}
           items={navItems}
           onClick={handleMenuClick}
           itemIcon
-          style={{
-            fontSize: 16,
-            marginTop: 12,
-            padding: '0 12px',
-          }}
+          style={menuStyle}
         />
       </Sider>
       <Layout style={{ marginInlineStart: 200 }}>
         <Content>
-          <div style={contentStyle}>{props.children}</div>
+          <div style={contentStyle}>
+            <Outlet />
+          </div>
+          <CreatePostModal
+            open={isCreateModalOpen}
+            onCancel={closeCreatePost}
+          />
         </Content>
-        <Footer
-          style={{
-            textAlign: 'center',
-            fontSize: 12,
-            color: '#848484',
-            margin: '12px 0',
-          }}
-        >
+        <Footer style={footerStyle}>
           <div>
             Zerobase 소개 블로그 채용 정보 도움말 API 개인정보처리방침 약관 위치
             연락처 업로드 & 비사용자 Zerobase Verified
