@@ -7,3 +7,23 @@
 * {
   font-family: "NotoSansKR";
 }
+
+.outline1 {
+  border: 2px double  black;
+  
+}
+.outline2 {
+  border: 1px solid red;
+}
+.outline3 {
+  border: 1px dashed blue;
+}
+.outline4 {
+  border: 1px dotted green;
+}
+.outline5 {
+  border: 1px dotted rgb(156, 156, 156);
+}
+.flex {
+  display: flex
+}

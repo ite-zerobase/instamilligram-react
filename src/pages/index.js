@@ -6,7 +6,7 @@ import ProfileView from './Profile/ProfileView';
 import SearchView from './Search/SearchView';
 import LoginLayout from './@common/LoginLayout';
 import SignupView from './Login/SignupView';
-import CommentView from './Comment/CommentView';
+import CommentList from './Comment/CommentList';
 import NotificationView from './Notification/NotificationView';
 
 export {
@@ -18,6 +18,6 @@ export {
   SearchView,
   LoginLayout,
   SignupView,
-  CommentView,
+  CommentList,
   NotificationView,
 };

@@ -7,8 +7,9 @@ import {
   ProfileView,
   PostView,
   SignupView,
-  CommentView,
-  SearchView,NotificationView
+  CommentList,
+  SearchView,
+  NotificationView,
 } from './pages';
 import './App.css';
 
@@ -20,7 +21,7 @@ const App = () => {
           <Route path="/" element={<HomeView />} />
           <Route path="/:username" element={<ProfileView />} />
           <Route path="/p/:postId" element={<PostView />} />
-          <Route path="/comments" element={<CommentView />} />
+          <Route path="/comments" element={<CommentList />} />
           <Route path="/notification" element={<NotificationView />} />
           <Route path="/search" element={<SearchView />} />
         </Route>

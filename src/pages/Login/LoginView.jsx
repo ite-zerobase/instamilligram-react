@@ -3,7 +3,11 @@ import styles from './LoginView.module.css';
 import Button from '@mui/material/Button';
 
 import TextField from '@mui/material/TextField';
-
+const textFieldProps = {
+  input: { style: { fontSize: 14 } },
+  htmlInput: { style: { fontSize: 14 } },
+  inputLabel: { style: { fontSize: 14 } },
+};
 function LoginView() {
   const navigate = useNavigate();
   return (
@@ -16,9 +20,15 @@ function LoginView() {
               label="전화번호, 사용자 이름 또는 이메일"
               autoComplete="none"
               fullWidth
+              slotProps={textFieldProps}
               margin="dense"
             />
-            <TextField label="비밀번호" fullWidth margin="dense" />
+            <TextField
+              slotProps={textFieldProps}
+              label="비밀번호"
+              fullWidth
+              margin="dense"
+            />
           </div>
           <Button
             onClick={() => navigate('/')}

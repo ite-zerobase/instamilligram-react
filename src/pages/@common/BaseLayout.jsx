@@ -51,10 +51,6 @@ function BaseLayout() {
           <div style={contentStyle}>
             <Outlet />
           </div>
-          <CreatePostModal
-            open={isCreateModalOpen}
-            onCancel={closeCreatePost}
-          />
         </Content>
         <Footer style={footerStyle}>
           <div>
@@ -64,6 +60,7 @@ function BaseLayout() {
           <div>© 2024 Instamilligram from Zerobase</div>
         </Footer>
       </Layout>
+      <CreatePostModal open={isCreateModalOpen} onCancel={closeCreatePost} />
     </Layout>
   );
 }

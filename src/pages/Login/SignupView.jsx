@@ -2,7 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import styles from './LoginView.module.css';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-
+const textFieldProps = {
+  input: { style: { fontSize: 14 } },
+  htmlInput: { style: { fontSize: 14 } },
+  inputLabel: { style: { fontSize: 14 } },
+};
 function SignupView() {
   const navigate = useNavigate();
   return (
@@ -19,18 +23,21 @@ function SignupView() {
               autoComplete="none"
               fullWidth
               margin="dense"
+              slotProps={textFieldProps}
             />
             <TextField
               label="비밀번호"
               autoComplete="new-password"
               fullWidth
               margin="dense"
+              slotProps={textFieldProps}
             />
             <TextField
               label="성명"
               autoComplete="none"
               fullWidth
               margin="dense"
+              slotProps={textFieldProps}
             />
           </div>
           <Button
