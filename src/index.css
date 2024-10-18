@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: "NotoSansKR";
   font-weight: normal;
@@ -10,20 +14,26 @@
 
 .outline1 {
   border: 2px double  black;
-  
+  min-width: 24px;
+  min-height: 24px;
 }
 .outline2 {
   border: 1px solid red;
+  min-height: 24px;
+  min-width: 24px;
 }
 .outline3 {
   border: 1px dashed blue;
+  min-height: 24px;
+  min-width: 24px;
 }
 .outline4 {
   border: 1px dotted green;
+  min-height: 24px;
+  min-width: 24px;
 }
 .outline5 {
   border: 1px dotted rgb(156, 156, 156);
-}
-.flex {
-  display: flex
+  min-height: 24px;
+  min-width: 24px;
 }
