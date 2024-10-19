@@ -1,6 +1,6 @@
-import { Avatar } from 'antd';
+import { Avatar, Button } from 'antd';
 import { deepOrange } from '@mui/material/colors';
-import { RightCircleOutlined, LeftCircleOutlined } from '@ant-design/icons';
+import { RightCircleFilled, LeftCircleFilled } from '@ant-design/icons';
 import {
   CommentOutlined,
   HeartFilled,
@@ -9,11 +9,64 @@ import {
   ShareOutlined,
 } from '../../@common/icons';
 import TextareaAutosize from 'react-textarea-autosize';
-import { Carousel, Button } from 'antd';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 // 하트 <HeartFilled color="#ff3040" />
 
+const arrowStyles = {
+  position: 'absolute',
+  zIndex: 2,
+  top: 'calc(50% - 15px)',
+  width: 30,
+  height: 30,
+  cursor: 'pointer',
+};
+
+function CarouselNextArrow(onClickHandler, hasNext) {
+  return (
+    hasNext && (
+      <Button
+        type="text"
+        style={{ ...arrowStyles, right: 5 }}
+        onClick={onClickHandler}
+        icon={<RightCircleFilled className="text-[#FFFFFFE4]" />}
+      />
+    )
+  );
+}
+function CarouselPrevArrow(onClickHandler, hasPrev) {
+  return (
+    hasPrev && (
+      <Button
+        type="text"
+        style={{ ...arrowStyles, left: 5 }}
+        onClick={onClickHandler}
+        icon={<LeftCircleFilled className="text-[#FFFFFFE4]" />}
+      />
+    )
+  );
+}
+
+function CarouselIndicator(onClick, isSelected) {
+  return (
+    <div
+      style={{
+        width: 6,
+        height: 6,
+        backgroundColor: isSelected ? '#FFFFFF' : '#FFFFFF80',
+        display: 'inline-block',
+        margin: '0 2px',
+        borderRadius: '50%',
+      }}
+    ></div>
+  );
+}
+
 function PostPreview() {
+  function onCarouselChange(c) {
+    console.log(c);
+  }
   return (
     <article className="home-post-preview text-sm ">
       {/* 상단 프로필 섹션 */}
@@ -33,24 +86,39 @@ function PostPreview() {
       </section>
       <section className="border-[1px] border-neutral-200 rounded-sm ">
         <Carousel
-          arrows
-          infinite={false}
-          nextArrow={<Button icon={<RightCircleOutlined />} />}
-          prevArrow={<Button icon={<LeftCircleOutlined />} />}
+          showArrows={true}
+          showStatus={false}
+          transitionTime={250}
+          showThumbs={false}
+          onChange={(c) => onCarouselChange(c)}
+          renderArrowNext={CarouselNextArrow}
+          renderArrowPrev={CarouselPrevArrow}
+          renderIndicator={CarouselIndicator}
         >
-          <div>
-            <h3>1</h3>
+          <div className="flex items-center h-full bg-black">
+            <img
+              draggable="false"
+              style={{ userSelect: 'none' }}
+              src="http://placehold.it/350x150"
+            />
           </div>
-          <div>
-            <h3>2</h3>
+          <div className="flex items-center h-full bg-black">
+            <img
+              draggable="false"
+              style={{ userSelect: 'none' }}
+              src="http://placehold.it/255x150"
+            />
           </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
+          <div className="flex items-center h-full bg-black">
+            <img
+              draggable="false"
+              style={{ userSelect: 'none' }}
+              src="http://placehold.it/295x150"
+            />
           </div>
         </Carousel>
+        {/* {<RightCircleOutlined />}
+            {<LeftCircleOutlined />}  */}
       </section>
       <div>
         <section className="flex h-10 my-1">

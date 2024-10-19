@@ -35,7 +35,7 @@ function BaseLayout() {
 
   return (
     <Layout hasSider>
-      <Sider width={204} style={siderStyle}>
+      <Sider className="z-50" width={204} style={siderStyle}>
         <div className={styles['sider-logo']}></div>
         <Menu
           mode="inline"
