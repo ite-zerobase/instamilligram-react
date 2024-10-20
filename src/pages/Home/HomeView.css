@@ -7,7 +7,3 @@
     width: 470px;
     margin: 0 auto;
 }
-
-.slick-arrow .slick-prev:after {
-    display: hidden;
-}
