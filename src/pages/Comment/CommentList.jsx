@@ -1,54 +1,70 @@
+import { Comment } from './index.js';
+
 function CommentList() {
   return (
     <>
-      <div className="container flex">
-        <div className="outline1">사진리스트</div>
-        <div className="outline1">
-          <div className="outline2">상단프로필</div>
-          <div className="outline2 ">
-            게시글내용
-            {/* <div className="outline3">프로필사진</div>
-            <div className="outline3">
-              <div className="outline4">아이디 내용</div>
-              <div className="outline4">해시태그</div>
-              <div className="outline4">게시글 작성시간</div>
-            </div> */}
-          </div>
-          <div className="outline2">
-            <div className="outline3">
-              <div className="outline4 flex">
-                <div className="outline5 flex">
-                  <div className="outline5">프로필사진</div>
-                  <div className="outline5">
-                    <div className="outline5">아이디 댓글내용</div>
-                    <div className="outline5 flex">
-                      <div className="outline5">작성시간</div>
-                      <div className="outline5">좋아요갯수</div>
-                      <div className="outline5">답글달기</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="outline5">하트</div>
-              </div>
-              <div className="outline4">답글 보기</div>
-            </div>
-          </div>
-          <div className="outline2">
-            좋아요버튼
-            {/* <div className="outline3 flex">
-              <div className="outline4"> 하트 </div>
-              <div className="outline4"> 댓글 </div>
-              <div className="outline4"> DM</div>
-            </div>
-            <div className="outline3">좋아요 갯수</div>
-            <div className="outline3">게시글 작성시간</div> */}
-          </div>
-          <div className="outline2 flex">
-            <div className="outline3">이모티콘</div>
-            <div className="outline3">댓글달기 입력칸</div>
-            <div className="outline3">게시버튼</div>
-          </div>
-        </div>
+      <div className="">
+        <Comment
+          type="comment"
+          profileUrl={
+            'https://d2v80xjmx68n4w.cloudfront.net/gigs/F1zfb1718452618.jpg'
+          }
+          postDate={'3일'}
+          username={'zerobase.ite'}
+          content={
+            '댓글이야!\n' +
+            '오늘도 여름에 가볍게 입을만한 코디 보여줄게!\n' +
+            '점점 더워지지만 아직 긴팔은 버틸만해서 ㅎㅎ\n' +
+            '셔츠로 색감 포인트 내고싶어서 민트색 입어써\n' +
+            '프린팅으로 포멀한 포인트 주는 것도 잊지 않구\n' +
+            '재밌게 봐줘~!!!🙃🙃'
+          }
+          likeCount={24}
+          replyCount={1}
+          isLiked={false}
+          onProfileClick={() => console.log('프로필 클릭')}
+          onLikeClick={() => console.log('좋아요 클릭')}
+          onShowReplyClick={() => console.log('답글 보기 클릭')}
+          onReplyClick={() => console.log('답글 달기 클릭')}
+        />
+        <Comment
+          type="comment"
+          profileUrl={
+            'https://d2v80xjmx68n4w.cloudfront.net/gigs/F1zfb1718452618.jpg'
+          }
+          postDate={'3일'}
+          username={'zerobase.ite'}
+          content={'롸저뎃ㅋㅋ'}
+          likeCount={2400}
+          replyCount={5}
+          isLiked={false}
+          onProfileClick={() => console.log('프로필 클릭')}
+          onLikeClick={() => console.log('좋아요 클릭')}
+          onShowReplyClick={() => console.log('답글 보기 클릭')}
+          onReplyClick={() => console.log('답글 달기 클릭')}
+        />
+        <Comment
+          type="comment"
+          profileUrl={
+            'https://d2v80xjmx68n4w.cloudfront.net/gigs/F1zfb1718452618.jpg'
+          }
+          postDate={'3일'}
+          username={'zerobase.ite'}
+          content={
+            '댓글이야!\n' +
+            '오늘도 여름에 가볍게 입을만한 코디 보여줄게!\n' +
+            '점점 더워지지만 아직 긴팔은 버틸만해서 ㅎㅎ\n' +
+            '셔츠로 색감 포인트 내고싶어서 민트색 입어써\n' +
+            '프린팅으로 포멀한 포인트 주는 것도 잊지 않구\n' +
+            '재밌게 봐줘~!!!🙃🙃'
+          }
+          likeCount={24}
+          isLiked={false}
+          onProfileClick={() => console.log('프로필 클릭')}
+          onLikeClick={() => console.log('좋아요 클릭')}
+          onShowReplyClick={() => console.log('답글 보기 클릭')}
+          onReplyClick={() => console.log('답글 달기 클릭')}
+        />
       </div>
     </>
   );

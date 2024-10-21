@@ -2,25 +2,25 @@ import { Modal } from 'antd';
 import styles from '../../@common/components/CreatePostModal.module.css';
 import { CloseOutlined } from '@ant-design/icons';
 
-function PostModal(props) {
+function PostModal({ children, show, onCancel }) {
   return (
     <Modal
-      open={props.open}
-      onCancel={props.onCancel}
+      open={show}
+      onCancel={onCancel}
       centered
       footer={null}
       closable={false}
       transitionName={null}
-      className="create-post-modal"
+      className="post-modal"
       width={'auto'}
+      styles={{ content: { padding: 0 } }}
     >
-      <button className={styles.closeButton} onClick={props.onCancel}>
+      <button className={styles.closeButton} onClick={onCancel}>
         <CloseOutlined style={{ color: 'white' }} />
       </button>
-      <div className={styles.modal}>
-        내용내용내용내용내용내용내용내용내용내용
-      </div>
+      {children}
     </Modal>
   );
 }
+
 export default PostModal;

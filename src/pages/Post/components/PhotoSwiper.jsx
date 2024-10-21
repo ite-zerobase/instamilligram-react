@@ -2,6 +2,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { Button } from 'antd';
 import { LeftCircleFilled, RightCircleFilled } from '@ant-design/icons';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { useEffect, useState } from 'react';
 
 const arrowStyles = {
   position: 'absolute',
@@ -52,9 +53,9 @@ function CarouselIndicator(onClick, isSelected) {
   );
 }
 
-function PhotoSwiper({ imageUrls }) {
+function PhotoSwiper({ imageUrls, imageWidth }) {
   return (
-    <div className="h-full flex items-center bg-black">
+    <div className="flex items-center bg-black">
       <Carousel
         showArrows={true}
         showStatus={false}
@@ -63,18 +64,19 @@ function PhotoSwiper({ imageUrls }) {
         renderArrowNext={CarouselNextArrow}
         renderArrowPrev={CarouselPrevArrow}
         renderIndicator={CarouselIndicator}
+        width={imageWidth ? imageWidth : 'auto'}
       >
         {imageUrls.map((url, index) => (
           <div
             key={index}
-            className="h-full flex items-center justify-center bg-black"
+            className=" flex items-center justify-center bg-black"
           >
             <img
               draggable="false"
               style={{
                 userSelect: 'none',
-                maxHeight: '100%',
-                objectFit: 'contain',
+                height: imageWidth ? imageWidth + 'px' : 'auto',
+                objectFit: 'cover',
               }}
               src={url}
               alt={url}

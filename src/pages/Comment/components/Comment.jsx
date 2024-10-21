@@ -20,7 +20,7 @@ function Comment({
     return type === 'comment';
   }
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between mb-4">
       <div
         className="flex"
         style={{ width: type === 'comment' ? 'calc(100% - 28px)' : '100%' }}
@@ -35,7 +35,7 @@ function Comment({
         </div>
         <div>
           <div className="text-left">
-            <div>
+            <div className="mb-2">
               <span
                 onClick={onProfileClick}
                 className="font-semibold cursor-pointer active:text-[#00000090] mr-1 select-none"
@@ -44,10 +44,28 @@ function Comment({
               </span>
               <span>{content}</span>
             </div>
-            <div>
-              <span className="text-xs text-neutral-500">{postDate}</span>
+            <div className="flex gap-3 text-xs text-neutral-500">
+              <span>{postDate}</span>
+              {isComment() && (
+                <>
+                  <div className="font-semibold">
+                    좋아요 <span>16</span>개
+                  </div>
+                  <span className="font-semibold">답글 달기</span>
+                </>
+              )}
             </div>
           </div>
+          {replyCount > 0 && (
+            <li>
+              <button className="flex items-center ml-2 mt-5 mb-2 gap-3">
+                <div className="border-b-[1px] border-neutral-400 w-6"></div>
+                <div className="text-xs font-semibold text-neutral-500">
+                  답글 보기({replyCount}개)
+                </div>
+              </button>
+            </li>
+          )}
         </div>
       </div>
       {isComment() && (

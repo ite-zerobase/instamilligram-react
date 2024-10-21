@@ -6,11 +6,13 @@ function SubmitComment({ onSubmit, showProfile, profileUrl }) {
   return (
     <div className="mt-2 flex w-full">
       <div className="flex w-full items-center">
-        <Avatar
-          className="border-[#00000066] mr-3"
-          size={32}
-          src={profileUrl}
-        />
+        {showProfile && (
+          <Avatar
+            className="border-[#00000066] mr-3"
+            size={32}
+            src={profileUrl}
+          />
+        )}
         <TextareaAutosize
           placeholder="댓글 달기..."
           className="outline-none w-auto grow"

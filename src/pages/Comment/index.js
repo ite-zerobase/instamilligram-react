@@ -1,3 +1,4 @@
 import Comment from './components/Comment.jsx';
+import CommentList from './CommentList.jsx';
 
-export { Comment };
+export { Comment, CommentList };
