@@ -8,6 +8,16 @@ import {
 import PostContentPreview from '../../Post/components/PostContentPreview.jsx';
 
 function PostPreview() {
+  const imageUrls = [
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939797.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939798.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939806.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939810.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939814.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939818.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939819.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939823.jpg',
+  ];
   return (
     <article className="home-post-preview text-sm">
       <section>
@@ -26,13 +36,7 @@ function PostPreview() {
         </div>
       </section>
       <section className="border-[1px] border-neutral-200 rounded-sm overflow-hidden">
-        <PhotoSwiper
-          imageUrls={[
-            'http://placehold.it/470x480',
-            'http://placehold.it/470x480',
-            'http://placehold.it/470x480',
-          ]}
-        />
+        <PhotoSwiper imageUrls={imageUrls} />
       </section>
       <div>
         <section>

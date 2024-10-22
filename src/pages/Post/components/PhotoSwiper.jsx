@@ -20,7 +20,7 @@ function CarouselNextArrow(onClickHandler, hasNext) {
         type="text"
         style={{ ...arrowStyles, right: 5 }}
         onClick={onClickHandler}
-        icon={<RightCircleFilled className="text-[#FFFFFFE4]" />}
+        icon={<RightCircleFilled className="text-[#e4dddde4]" />}
       />
     )
   );

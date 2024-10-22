@@ -1,3 +1,3 @@
 import SplashScreen from './SplashScreen';
-
-export { SplashScreen };
+import Button from './Button';
+export { SplashScreen, Button };

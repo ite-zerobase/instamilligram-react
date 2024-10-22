@@ -46,19 +46,30 @@ function Comment({
             </div>
             <div className="flex gap-3 text-xs text-neutral-500">
               <span>{postDate}</span>
-              {isComment() && (
+              {likeCount > 0 && (
                 <>
-                  <div className="font-semibold">
-                    좋아요 <span>16</span>개
+                  <div
+                    onClick={onLikeClick}
+                    className="font-semibold cursor-pointer"
+                  >
+                    좋아요 <span>{likeCount}</span>개
                   </div>
-                  <span className="font-semibold">답글 달기</span>
+                  <span
+                    onClick={onReplyClick}
+                    className="font-semibold cursor-pointer"
+                  >
+                    답글 달기
+                  </span>
                 </>
               )}
             </div>
           </div>
           {replyCount > 0 && (
             <li>
-              <button className="flex items-center ml-2 mt-5 mb-2 gap-3">
+              <button
+                onClick={onShowReplyClick}
+                className="flex items-center ml-2 mt-5 mb-2 gap-3"
+              >
                 <div className="border-b-[1px] border-neutral-400 w-6"></div>
                 <div className="text-xs font-semibold text-neutral-500">
                   답글 보기({replyCount}개)

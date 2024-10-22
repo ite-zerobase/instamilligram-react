@@ -34,6 +34,16 @@ function PostView() {
 
   const profileUrl =
     'https://d2v80xjmx68n4w.cloudfront.net/gigs/F1zfb1718452618.jpg';
+  const imageUrls = [
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939797.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939798.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939806.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939810.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939814.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939818.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939819.jpg',
+    'https://image.yes24.com/momo//TopCate4020/MidCate004/401939823.jpg',
+  ];
   return (
     <>
       <Button onClick={() => setIsModalOpen(true)}>포스트 열기</Button>
@@ -47,14 +57,7 @@ function PostView() {
             className="flex justify-between"
           >
             <section className="h-full grow">
-              <PhotoSwiper
-                imageWidth={imageWidth}
-                imageUrls={[
-                  'http://placehold.it/480x450',
-                  'http://placehold.it/480x450',
-                  'http://placehold.it/480x450',
-                ]}
-              />
+              <PhotoSwiper imageWidth={imageWidth} imageUrls={imageUrls} />
             </section>
             <div className="min-w-[400px] w-[400px] flex flex-col">
               <section className="h-[60px] flex items-center py-[14px] px-[16px] border-[1px] border-neutral-200 rounded-sm">
@@ -67,7 +70,7 @@ function PostView() {
                   onFollowClick={() => console.log('팔로우 클릭')}
                 />
               </section>
-              <section className="grow overflow-y-scroll scrollbar-hidden flex flex-col gap-y-3 py-[14px] px-[16px] ">
+              <section className="grow overflow-y-scroll scrollbar-hidden flex flex-col gap-y-3 py-[14px] px-[16px] border-l-[1px] border-neutral-100 rounded-sm ">
                 <Comment
                   type="post"
                   profileUrl={profileUrl}
@@ -95,7 +98,7 @@ function PostView() {
                   />
                   <LikeCount count={'3.1만'} />
                   <div className="text-left">
-                    <span className="text-xs text-neutral-500">
+                    <span className="text-xs text-neutral-500 ">
                       {'10월 12일'}
                     </span>
                   </div>

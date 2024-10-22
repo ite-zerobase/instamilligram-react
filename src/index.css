@@ -47,3 +47,11 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+.zerobase-button:hover {
+  color:var(--hover-color) !important;
+  background-color:var(--hover-background-color) !important
+}
+.zerobase-button:active {
+  opacity: var(--active-opacity) !important;
+}
