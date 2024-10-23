@@ -6,7 +6,8 @@ import ShareOutlined from './ShareOutlined';
 import CommentHeartOutlined from './CommentHeartOutlined.jsx';
 import commentHeartFilled from './CommentHeartFilled.jsx';
 import SimilarAccountsOutlined from './SimilarAccountsOutlined.jsx';
-
+import TagOutlined from './TagOutlined.jsx';
+import PostRectOutlined from './PostRectOutlined.jsx';
 export {
   CommentOutlined,
   SimilarAccountsOutlined,
@@ -16,4 +17,6 @@ export {
   ShareOutlined,
   CommentHeartOutlined,
   commentHeartFilled,
+  TagOutlined,
+  PostRectOutlined,
 };
