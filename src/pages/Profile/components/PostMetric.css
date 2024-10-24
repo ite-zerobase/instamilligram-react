@@ -1,0 +1,17 @@
+.post-metric-heart {
+  background-image: url("src/assets/images/sprite_core_2x.png");
+  background-size: 440px 411px;
+  background-position: -382px -223px;
+  min-width: 19px;
+  min-height: 19px;
+  background-repeat: no-repeat;
+}
+
+.post-metric-comment {
+  background-image: url("src/assets/images/sprite_core_2x.png");
+  background-size: 440px 411px;
+  background-position: -382px -263px;
+  width: 19px;
+  height: 19px;
+  background-repeat: no-repeat;
+}
