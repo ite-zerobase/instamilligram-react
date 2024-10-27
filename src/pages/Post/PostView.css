@@ -1,0 +1,16 @@
+.post-image {
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.profile-image {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.icon {
+  margin-right: 10px;
+}
