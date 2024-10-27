@@ -11,48 +11,57 @@ const textFieldProps = {
 function LoginView() {
   const navigate = useNavigate();
   return (
-    <div className={styles.container}>
-      <section className={styles.section}>
-        <div className={styles.formSection}>
-          <div className={styles.logo} />
-          <div className={styles.inputWrapper}>
-            <TextField
-              label="전화번호, 사용자 이름 또는 이메일"
-              autoComplete="none"
+    <div className="flex items-center justify-center w-full mb-5 h-[80vh]">
+      <div className="h-[450px] mr-8">
+        <img
+          className="h-full"
+          alt=""
+          src="src/assets/images/login-screenshot.png"
+        />
+      </div>
+      <div className={styles.container}>
+        <section className={styles.section}>
+          <div className={styles.formSection}>
+            <div className={styles.logo} />
+            <div className={styles.inputWrapper}>
+              <TextField
+                label="전화번호, 사용자 이름 또는 이메일"
+                autoComplete="none"
+                fullWidth
+                slotProps={textFieldProps}
+                margin="dense"
+              />
+              <TextField
+                slotProps={textFieldProps}
+                label="비밀번호"
+                fullWidth
+                margin="dense"
+              />
+            </div>
+            <Button
+              onClick={() => navigate('/')}
+              variant="contained"
+              size="large"
               fullWidth
-              slotProps={textFieldProps}
-              margin="dense"
-            />
-            <TextField
-              slotProps={textFieldProps}
-              label="비밀번호"
-              fullWidth
-              margin="dense"
-            />
-          </div>
-          <Button
-            onClick={() => navigate('/')}
-            variant="contained"
-            size="large"
-            fullWidth
-          >
-            로그인
-          </Button>
-        </div>
-      </section>
-      <section className={styles.section}>
-        <div className={styles.gotoSection}>
-          <div>
-            계정이 없으신가요?{' '}
-            <span
-              onClick={() => navigate('/signup')}
-              className={styles.boldLink}
             >
-              가입하기
-            </span>
+              로그인
+            </Button>
           </div>
-        </div>
-      </section>
+        </section>
+        <section className={styles.section}>
+          <div className={styles.gotoSection}>
+            <div>
+              계정이 없으신가요?{' '}
+              <span
+                onClick={() => navigate('/signup')}
+                className={styles.boldLink}
+              >
+                가입하기
+              </span>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
