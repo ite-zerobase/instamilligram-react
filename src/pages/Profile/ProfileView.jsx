@@ -5,14 +5,6 @@ import ProfileBio from './components/ProfileBio.jsx';
 import ProfilePostGrid from './components/ProfilePostGrid.jsx';
 
 function ProfileView() {
-  /*
-  
-  프로필 소개 부분 <ProfileBio>
-  1. 실제 데이터와 연동해주세요
-  2. job이 있을 때만 job을 보여주도록 수정해주세요
-  3. bio가 한줄로 나와요. \n을 기준으로 여러줄이 보여지게끔 수정해주세요.
-*/
-
   const profileUrl =
     'https://img.freepik.com/free-photo/adorable-portrait-pomeranian-dog_23-2151771743.jpg';
   return (
