@@ -33,7 +33,28 @@ function SignupView() {
               slotProps={textFieldProps}
             />
             <TextField
-              label="성명"
+              label="닉네임"
+              autoComplete="none"
+              fullWidth
+              margin="dense"
+              slotProps={textFieldProps}
+            />
+            <TextField
+              label="이메일"
+              autoComplete="none"
+              fullWidth
+              margin="dense"
+              slotProps={textFieldProps}
+            />
+            <TextField
+              label="직업"
+              autoComplete="none"
+              fullWidth
+              margin="dense"
+              slotProps={textFieldProps}
+            />
+            <TextField
+              label="소개글"
               autoComplete="none"
               fullWidth
               margin="dense"
