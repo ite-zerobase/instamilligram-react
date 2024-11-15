@@ -1,9 +1,22 @@
 import TextareaAutosize from 'react-textarea-autosize';
 import { Avatar } from 'antd';
+import { useEffect, useState } from 'react';
 
-function SubmitComment({ onSubmit, showProfile, profileUrl }) {
-  const val = '댓글 게시버튼 클릭';
+function SubmitComment({ onSubmit, showProfile, profileUrl, replyInfo={} }) {
+
+  //const [editContent, setEditContent] = useState('');
+  const [commentContent, setCommentContent] = useState('');
+
+  useEffect(()=>{
+    setCommentContent(replyInfo.receiver ? `@${replyInfo.receiver} `: '');
+  },[replyInfo])
+
+  const handleEditComment = (content) => {
+    setCommentContent(content);
+  }
+
   return (
+
     <div className="mt-2 flex w-full">
       <div className="flex w-full items-center">
         {showProfile && (
@@ -19,9 +32,11 @@ function SubmitComment({ onSubmit, showProfile, profileUrl }) {
           minRows={1}
           maxRows={4}
           style={{ resize: 'none' }}
+          value={commentContent}
+          onChange={e=>handleEditComment(e.target.value)}
         />
         <div
-          onClick={() => onSubmit(val)}
+          onClick={() => onSubmit(commentContent)}
           className="w-7 mx-2 text-[#0095f6] hover:text-[#00376b] active:text-[#00376b90] cursor-pointer font-semibold"
         >
           <span>게시</span>

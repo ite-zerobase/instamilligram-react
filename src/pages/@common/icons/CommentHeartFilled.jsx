@@ -1,4 +1,4 @@
-function CommentHeartOutlined({ size = 16, color = '#ff3040' }) {
+function CommentHeartFilled({ size = 16, color = '#ff3040' }) {
   return (
     <svg
       aria-label="좋아요 취소"
@@ -14,4 +14,4 @@ function CommentHeartOutlined({ size = 16, color = '#ff3040' }) {
   );
 }
 
-export default CommentHeartOutlined;
+export default CommentHeartFilled;
