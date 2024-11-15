@@ -7,7 +7,24 @@ import {
 } from '../../Post/index.js';
 import PostContentPreview from '../../Post/components/PostContentPreview.jsx';
 
-function PostPreview() {
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
+function PostPreview({ postId }) {
+  const [post, setPost] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get('zerbase.com', { postId: { postId } })
+      .then((res) => {
+        console.log('hi');
+        setPost(res.data); 
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  }, [ postId ]);
+
   const imageUrls = [
     'https://image.yes24.com/momo//TopCate4020/MidCate004/401939797.jpg',
     'https://image.yes24.com/momo//TopCate4020/MidCate004/401939798.jpg',
@@ -26,10 +43,10 @@ function PostPreview() {
             profileUrl={
               'https://d2v80xjmx68n4w.cloudfront.net/gigs/F1zfb1718452618.jpg'
             }
-            username={'zerobase.ite'}
-            postDate={'5일'}
+            username={post.writer.username}
+            postDate={post.createdAt}
             showDate
-            showFollow
+            showFollow={post.following}
             onProfileClick={() => console.log('프로필 클릭')}
             onFollowClick={() => console.log('팔로우 클릭')}
           />
@@ -48,13 +65,13 @@ function PostPreview() {
           />
         </section>
         <section>
-          <LikeCount count={'3.1만'} />
+          <LikeCount count={post.likeCount} />
         </section>
         <section>
           <PostContentPreview
-            username={'zerobase-ite'}
-            postContent={'테스트게시글입니당'}
-            commentCount={540}
+            username={post.writer.username}
+            postContent={post.postContent}
+            commentCount={post.commentCount}
             onMorePostContentClick={() => console.log('게시글 더보기 클릭')}
             onShowAllCommentClick={() => console.log('댓글 모두보기 클릭')}
           />
