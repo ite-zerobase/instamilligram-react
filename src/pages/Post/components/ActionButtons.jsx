@@ -3,6 +3,7 @@ import {
   HeartOutlined,
   SaveOutlined,
   ShareOutlined,
+  HeartFilled,
 } from '../../@common/icons/index.js';
 
 function ActionButtons({
@@ -10,12 +11,13 @@ function ActionButtons({
   onCommentClick,
   onShareClick,
   onSaveClick,
+  liked,
 }) {
   return (
     <div className="flex h-10 my-1">
       <div className="grow flex">
         <div onClick={onHeartClick} className="p-2 pl-0 cursor-pointer">
-          <HeartOutlined />
+          {liked ? <HeartFilled /> : <HeartOutlined />}
         </div>
         <div onClick={onCommentClick} className="p-2 cursor-pointer">
           <CommentOutlined />
